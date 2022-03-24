@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ProductTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка перехода на страницу информации о продукте")
     public void correctProductInformationShouldBeDisplayedAfterChoosingProduct() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -15,7 +15,7 @@ public class ProductTest extends BaseTest {
         assertEquals(productInformationPage.getPrice(), "$29.99", "Price didn't match");
     }
 
-    @Test
+    @Test(description = "Проверка возврата на страницу продуктов нажатием кнопки 'back to products'")
     public void backToProductsButtonShouldReturnToProductsPage() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -24,7 +24,7 @@ public class ProductTest extends BaseTest {
         assertEquals(productsPage.getTitle(), "PRODUCTS", "Return to products page failed");
     }
 
-    @Test
+    @Test(description = "Проверка корректной работы сортировки")
     public void sortingProducts() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);

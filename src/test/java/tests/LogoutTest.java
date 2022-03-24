@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 
 public class LogoutTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка на возможность разлогиниться со страницы продуктов")
     public void logoutShouldBeDoneFromProductsPage() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -16,7 +16,7 @@ public class LogoutTest extends BaseTest {
         assertEquals(loginPage.getURL(), "https://www.saucedemo.com/", "Logout failed");
     }
 
-    @Test
+    @Test(description = "Проверка на возможность разлогиниться со страницы корзины")
     public void logoutShouldBeDoneFromCartPage() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
