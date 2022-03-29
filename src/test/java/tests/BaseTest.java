@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(TestListener.class)
 public class BaseTest {
     WebDriver driver;
-    public static final String USER = "standard_user";
+    public static final String USER = System.getenv().getOrDefault("user", "standard_user"); //"standard_user";
     public static final String PASSWORD = "secret_sauce";
     LoginPage loginPage;
     NavigationMenuPage navigationMenuPage;
@@ -29,7 +29,7 @@ public class BaseTest {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
+        options.setHeadless(true);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
