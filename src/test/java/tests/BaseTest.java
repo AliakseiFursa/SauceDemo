@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(TestListener.class)
 public class BaseTest {
     WebDriver driver;
-    public static final String USER = System.getProperty("user"); //"standard_user";
+    public static final String USER = System.getenv().getOrDefault("user", "standard_user"); //"standard_user";
     public static final String PASSWORD = "secret_sauce";
     LoginPage loginPage;
     NavigationMenuPage navigationMenuPage;
