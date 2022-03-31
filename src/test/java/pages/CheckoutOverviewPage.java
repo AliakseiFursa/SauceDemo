@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,22 +16,27 @@ public class CheckoutOverviewPage extends BasePage {
         super(driver);
     }
 
+    @Step("Getting page title")
     public String getTitle() {
         return driver.findElement(PAGE_TITLE).getText();
     }
 
+    @Step("Canceling checkout process")
     public void cancelFromCheckout() {
         driver.findElement(CANCEL_BUTTON).click();
     }
 
+    @Step("Finishing checkout")
     public void finishCheckout() {
         driver.findElement(FINISH_BUTTON).click();
     }
 
+    @Step("Getting total price")
     public String getTotalPrice() {
         return driver.findElement(TOTAL_PRICE).getText();
     }
 
+    @Step("Getting product name")
     public String getProductName() {
         return driver.findElement(PRODUCT_NAME).getText();
     }
