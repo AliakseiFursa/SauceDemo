@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
     }
 
-    @Step("Log in by user {user} using password {password}")
+    @Step("Log in by user '{user}' using password '{password}'")
     public void login(String user, String password) {
         driver.findElement(USER_INPUT).sendKeys(user);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
