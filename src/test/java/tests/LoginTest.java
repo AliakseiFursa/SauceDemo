@@ -56,7 +56,7 @@ public class LoginTest extends BaseTest {
     public void problemUserShouldBeLoggedInWithIncorrectPictureOfProducts() {
         loginPage.open();
         loginPage.login("problem_user", PASSWORD);
-        assertEquals(productsPage.getTitle(), "blabla", "Login failed");
+        assertEquals(productsPage.getTitle(), "PRODUCTS", "Login failed");
         assertNotEquals(productsPage.getImgLink(), "https://www.saucedemo.com/static/media/sauce-backpack-1200x1500.34e7aa42.jpg", "Image link matched");
     }
 }
