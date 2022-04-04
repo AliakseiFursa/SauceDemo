@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,10 +18,12 @@ public class CheckoutPage extends BasePage {
         super(driver);
     }
 
+    @Step("Getting page title")
     public String getTitle() {
         return driver.findElement(PAGE_TITLE).getText();
     }
 
+    @Step("Filling checkout information: First Name {firstName}, Last Name {lastName}, Post Code {postalCode}")
     public void fillInCheckoutInfo(String firstName, String lastName, String postalCode) {
         driver.findElement(FIRST_NAME_INPUT).sendKeys(firstName);
         driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);
@@ -28,10 +31,12 @@ public class CheckoutPage extends BasePage {
         driver.findElement(CONTINUE_BUTTON).click();
     }
 
+    @Step("Getting error message")
     public String getErrorMessage() {
         return driver.findElement(ERROR_MESSAGE).getText();
     }
 
+    @Step("Canceling checkout process")
     public void cancelFromCheckout() {
         driver.findElement(CANCEL_BUTTON).click();
     }

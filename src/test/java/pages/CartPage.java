@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -16,26 +17,32 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
+    @Step("Opening cart page")
     public void open() {
         driver.get(baseURL + "cart.html");
     }
 
+    @Step("Proceed to checkout")
     public void goToCheckout() {
         driver.findElement(CHECKOUT_BUTTON).click();
     }
 
+    @Step("Getting page title")
     public String getTitle() {
         return driver.findElement(PAGE_TITLE).getText();
     }
 
+    @Step("Returning to products page")
     public void continueShopping() {
         driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
     }
 
+    @Step("Removing product from the cart")
     public void removeFromCart(String product) {
         driver.findElement(By.xpath(String.format(productRemoveFromCart, product))).click();
     }
 
+    @Step("Getting products count in cart")
     public int getProductsCount() {
         return driver.findElements(PRODUCT_IN_CART).size();
     }

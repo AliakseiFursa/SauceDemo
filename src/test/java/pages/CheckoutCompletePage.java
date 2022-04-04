@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,14 +14,17 @@ public class CheckoutCompletePage extends BasePage {
         super(driver);
     }
 
+    @Step("Getting page title")
     public String getTitle() {
         return driver.findElement(PAGE_TITLE).getText();
     }
 
+    @Step("Canceling checkout process")
     public void goBackToProducts() {
         driver.findElement(BACK_HOME_BUTTON).click();
     }
 
+    @Step("Getting confirmation message")
     public String getConfirmationMessage() {
         return driver.findElement(CONFIRMATION_MESSAGE).getText();
     }

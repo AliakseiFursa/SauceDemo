@@ -4,11 +4,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import pages.*;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
@@ -25,14 +30,23 @@ public class BaseTest {
     CheckoutOverviewPage checkoutOverviewPage;
     CheckoutCompletePage checkoutCompletePage;
 
-    @BeforeMethod
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
-        driver = new ChromeDriver(options);
+    @Parameters({"browser"})
+    @BeforeMethod(description = "Opening Browser")
+    public void setUp(String browser, ITestContext testContext) {
+        if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.setHeadless(true);
+            driver = new ChromeDriver(options);
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            options.setHeadless(false);
+            driver = new FirefoxDriver(options);
+        }
+        testContext.setAttribute("driver", driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
@@ -44,7 +58,7 @@ public class BaseTest {
         checkoutCompletePage = new CheckoutCompletePage(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod(alwaysRun = true, description = "Closing Browser")
     public void close() {
         driver.quit();
     }
