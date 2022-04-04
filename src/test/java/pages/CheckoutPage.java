@@ -23,7 +23,7 @@ public class CheckoutPage extends BasePage {
         return driver.findElement(PAGE_TITLE).getText();
     }
 
-    @Step("Filling checkout information: First Name {firstName}, Last Name {lastName}, Post Code {postalCode}")
+    @Step("Filling checkout information: First Name - '{firstName}', Last Name - '{lastName}', Post Code - '{postalCode}'")
     public void fillInCheckoutInfo(String firstName, String lastName, String postalCode) {
         driver.findElement(FIRST_NAME_INPUT).sendKeys(firstName);
         driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);

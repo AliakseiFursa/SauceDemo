@@ -37,7 +37,7 @@ public class CartPage extends BasePage {
         driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
     }
 
-    @Step("Removing product from the cart")
+    @Step("Removing product '{product}' from the cart")
     public void removeFromCart(String product) {
         driver.findElement(By.xpath(String.format(productRemoveFromCart, product))).click();
     }

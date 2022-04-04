@@ -26,12 +26,12 @@ public class ProductInformationPage extends BasePage {
         return driver.findElement(PRODUCT_DETAILED_PRICE).getText();
     }
 
-    @Step("Adding product to the cart")
+    @Step("Adding product '{product}' to the cart")
     public void addToCart(String product) {
         driver.findElement(By.xpath(String.format(productAddToCart, product))).click();
     }
 
-    @Step("Removing product from the cart")
+    @Step("Removing product '{product}' from the cart")
     public void removeFromCart(String product) {
         driver.findElement(By.xpath(String.format(productRemoveFromCart, product))).click();
     }

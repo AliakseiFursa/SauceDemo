@@ -35,17 +35,17 @@ public class ProductsPage extends BasePage {
         return driver.findElement(PAGE_TITLE).getText();
     }
 
-    @Step("Adding product to the cart")
+    @Step("Adding product '{product}' to the cart")
     public void addToCart(String product) {
         driver.findElement(By.xpath(String.format(productAddToCart, product))).click();
     }
 
-    @Step("Removing product from the cart")
+    @Step("Removing product '{product}' from the cart")
     public void removeFromCart(String product) {
         driver.findElement(By.xpath(String.format(productRemoveFromCart, product))).click();
     }
 
-    @Step("Opening product detailed information")
+    @Step("Opening product '{product}' detailed information")
     public void openProduct(String product) {
         driver.findElement(By.xpath(String.format(productOpen, product))).click();
     }
