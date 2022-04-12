@@ -6,26 +6,31 @@
         <listener class-name="tests.TestListener"/>
     </listeners>
     <test name="Login">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.LoginTest"/>
         </classes>
     </test>
     <test name="Logout">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.LogoutTest"/>
         </classes>
     </test>
     <test name="Product">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.ProductTest"/>
         </classes>
     </test>
     <test name="Cart">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.CartTest"/>
         </classes>
     </test>
     <test name="Checkout">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="tests.CheckoutTest"/>
         </classes>
