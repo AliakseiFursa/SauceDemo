@@ -15,7 +15,7 @@
             <class name="tests.CheckoutTest"/>
         </classes>
     </test>
-    <test name="FireFox">
+    <test name="Chrome">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="tests.LoginTest"/>
