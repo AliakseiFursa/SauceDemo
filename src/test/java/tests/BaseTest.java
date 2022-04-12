@@ -60,6 +60,8 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true, description = "Closing Browser")
     public void close() {
+        if (driver != null) {
         driver.quit();
+        }
     }
 }
