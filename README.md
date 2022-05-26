@@ -1,8 +1,14 @@
+Learning design patterns, allure reporting, properties in tests, test retries when fallen, 
+screenshotting, creation of xml file, CI with Jenkins.
+
 Technology Stack:
 
 1. Java 17
 2. Maven 3.8.1
 3. Selenium 4.1.2
+4. TestNG 7.4.0
+5. Allure TestNG 2.10.0
+6. AspectJ 1.9.9
 
 Maven Homework:
 
